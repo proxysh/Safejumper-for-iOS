@@ -19,6 +19,6 @@ If you are a VPN provider, you can feel free to use this code and customise it w
 This software has been developed by the following persons or entities:
 * The Proxy.sh Team, in particular Paul, Pauline, Boian, Vicki and Lou.
 * Three Monkeys International Inc. (consultancy, outsourcing).
-* Mikhail Zemlyanukha <gmixaz@gmail.com)
+* Mikhail Zemlyanukha (gmixaz@gmail.com)
 
 
