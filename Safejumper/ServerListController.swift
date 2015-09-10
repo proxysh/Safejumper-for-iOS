@@ -36,7 +36,7 @@ class ServerListController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         self.serverList = APIController.serverList
         
-    self.tableView.tableFooterView = UIView.new()
+    self.tableView.tableFooterView = UIView()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -71,7 +71,7 @@ class ServerListController: UIViewController, UITableViewDataSource, UITableView
             cell.titleLabel.text = self.serverList[indexPath.row].location
             cell.subtitleLabel.text = String(format: "%.0f%%", self.serverList[indexPath.row].load)
             
-            println( Int( self.serverList[indexPath.row].load ))
+            print( Int( self.serverList[indexPath.row].load ))
             
             if(Int( self.serverList[indexPath.row].load ) <= 25)
             {
