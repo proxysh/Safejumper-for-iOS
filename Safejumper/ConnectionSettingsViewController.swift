@@ -50,7 +50,7 @@ class ConnectionSettingsViewController: UITableViewController {
                 cell.accessoryType = UITableViewCellAccessoryType.None
             }
         default:
-            print("impossible case", appendNewline: false)
+            print("impossible case", terminator: "")
         }
         return cell
     }
@@ -62,7 +62,7 @@ class ConnectionSettingsViewController: UITableViewController {
         case 1:
             return protocolAndPorts.count
         default:
-            print("impossible case", appendNewline: false)
+            print("impossible case", terminator: "")
             return 1
         }
     }
@@ -84,7 +84,7 @@ class ConnectionSettingsViewController: UITableViewController {
             settings.commit()
             self.tableView.reloadData()
         default:
-            print("impossible case", appendNewline: false)
+            print("impossible case", terminator: "")
         }
     }
     

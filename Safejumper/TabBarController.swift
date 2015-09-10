@@ -26,35 +26,31 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         tabBar.tintColor = UIColor(red: 201.0/255.0, green: 0.0, blue: 31.0/255.0, alpha: 1.0)
     }
     
-    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
-        
-        
-      
-        println(tabBarController.selectedIndex)
-        println(viewController.view.tag)
-        
-        
-        return connected //|| viewController.view.tag == 1
-    }
+//    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+//        return true
+////        return connected || viewController.view.tag == 1
+//    }
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
         
-        if(viewController.view.tag != 1) {
+        // tags for tabs view controllers: 1-login, 2-settings, 3-import, 4-panel
         
-        let tab:ServerListController = viewControllers![1] as! ServerListController
-        tab.enableProtoScreen(false)
-            
+        // when not logged, pressing on settings or import opens login tab
+        if !connected && (viewController.view.tag == 2 || viewController.view.tag == 3) {
+            tabBarController.selectedIndex = 1;
+            return
         }
         
+        // reset settings tab when taping login tab
         if(viewController.view.tag == 1) {
-            
-           enableTabs(false)
-            
+            let tab:ServerListController = viewControllers![1] as! ServerListController
+            tab.enableProtoScreen(false)
         }
-//        else if(viewController.view.tag == 2) {
-//            let tab:ServerListController = viewController as! ServerListController
-//            tab.enableProtoScreen(false)
-//        }
+        
+        // switch login/logout labels on login tab
+        if(viewController.view.tag == 1 && connected) {
+            enableTabs(true)
+        }
     }
     
     func resetProtoScreen() {
